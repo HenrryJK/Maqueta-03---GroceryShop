@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+// Declarando mis variable de estilos
+$green:#bac34e;
+$black: #222;
+$white: #fff;
+$light-color: #666;
+$light-bg: #f3f3f3;
+$boder: .1rem solid rgba(0,0,0.1);
+$box-shadow:0.5rem 1rem rgba(0,0,0,.1);
+// Estilos que aun estoy analizando.
+@mixin grid($val){
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val,1fr));
+    gap: 1.5rem;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+// clase estilo relacionado al shopping car (carrito de compra)
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    background: $green;
+    color: $white;
+    font-size: 1.7rem;
+    cursor: pointer;
+
+    &:hover{
+        background: $black;
+    }
+
+}
+
+.header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: $white;
+    box-shadow: $box-shadow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+
+.logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: $black;
+
+    i{
+        color:$green;
+        padding-right: .5rem;
+    }
+}
+.navbar{
+    a{
+        font-size: 1.7rem;
+        color: $light-color;
+        margin: 0 1rem;
+
+        &:hover{
+            color:$green
+        }
+    }
+}    
+
+.icons div{
+    font-size: 2.5rem;
+    margin-left: 1.7rem;
+    cursor: pointer;
+    color: $light-color;
+
+    &:hover{
+        color: $green;
+    }
+}
+ .search-form{
+    position: absolute;
+    top: -115%; right:2rem;
+    width: 50rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    height: 5.5rem;
+    box-shadow: $box-shadow;
+    background: $white;
+
+    &.active{
+      top:115%; 
+    }
+
+    input{
+        height: 100%;
+        width: 100%;
+        padding: 0 1.2rem;
+        font-size: 1.6rem;
+        color: $black;
+        text-transform: none;
+    }
+    // llamo los mismo estilos que esta  en el ".icons div{}"
+    label{
+        font-size: 2.5rem;
+        margin-right: 1.7rem;
+        cursor: pointer;
+        color: $light-color;
+
+        &:hover{
+            color: $green;
+        }
+    }
+ }
+  .shopping-cart{
+    position: absolute;
+    // top: 115%; right: 2rem;
+    top: 115%; right: -105%;
+    background: $white;
+    border-radius: .5rem;
+    box-shadow: $box-shadow;
+    width: 35rem;
+    padding: 2rem;
+
+    &.active{
+      right: 2rem;
+      // para asignarle un pequeña fraccion de segundos
+      transition: .4s linear;
+    }
+    .box{
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        .fa-times{
+          position: absolute;
+          top: 50%; right: 2rem;
+          // posicionar o trasladar un elemento al medio hacia el eje X 
+          transform: translateY(-50%);
+          font-size: 2rem;
+          color: $light-color;
+          cursor: pointer;
+
+          &:hover{
+            color: $green;
+          }
+        }
+        img{
+           height: 10rem;
+        }
+        .content{
+            h3{
+                font-size: 1.7rem;
+                padding-bottom: .5rem;
+                color: $black;
+            }
+            span{
+                font-size: 1.5rem;
+                color: $light-color;
+
+                &.multiply{
+                    margin: 0 .5rem;
+                }
+            }
+        }
+    }
+    .total{
+        color: $light-color;
+        text-align: center;
+        font-size: 2.2rem;
+
+        span{
+            color: $black;
+        }
+    }
+    .btn{
+        text-align: center;
+        width: 100%;
+    }
+  }
+  .login-form{
+    position: absolute;
+    // top: 115%; right: 2rem;
+    // -105 al right para poder ocultar y poder implementar un pequeños estilo para desplegarlo.
+    top: 115%; right: -105rem;
+    background: $white;
+    border-radius: .5rem;
+    box-shadow: $box-shadow;
+    width: 35rem;
+    padding: 2rem;
+
+    &.active{
+        right: 2rem;
+        transition: .4s linear;
+    }
+
+    h3{
+        color: $black;
+        // estilo que pone en mayusculas
+        text-transform: uppercase;
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: .7rem;
+    }
+    .box{
+        margin: .7rem 0;
+        border: $boder;
+        padding: 1rem 1.2rem;
+        font-size: 1.5rem;
+        color: $black;
+        text-transform: none;
+        width: 100%;
+    }
+    .remember{
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        margin: .7rem 0;
+
+        label{
+          font-size: 1.5rem;
+          color: $light-color;
+          cursor: pointer;
+        }
+    }
+    .btn{
+      margin: 1rem 0;
+      width: 100%;
+      // center , end 
+      text-align: center;
+
+    }
+    p{
+      color: $light-color;
+      padding-top: .7rem;
+      font-size: 1.4rem;
+
+      a{
+        color: $green;
+
+        &:hover{
+            text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// estilos para los Id's
+#menu-btn{
+    display: none;
+}
+
+
+
+// Media Queries
+@media (max-width: 991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 2rem;
+    }
+}
+
+@media (max-width:768px){
+    #menu-btn{
+        display: inline-block;
+    }
+    .header{
+
+        .search-form{
+            width: 100%;
+            right: 0;
+            border-radius: 0;
+            &.active{
+                top: 99%;
+                border-top: $boder;
+                border-bottom: $boder;
+            }
+        }
+
+
+        .navbar{
+            position:absolute;
+            top: 99%; right: 0; left: 0;
+            background: $white;
+            border-top: $boder;
+            border-bottom: $boder;
+            //estilo para analizar. oculta los navs cuando esta en cierta resolucion
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+            &.active{
+                // muestra/oculta la barra de navegacion
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            }
+
+            a{
+                margin: 1.5rem;
+                padding: 1.5rem;
+                background: $light-bg;
+                font-size: 2rem;
+                display: block;
+                border-radius: .5rem;
+            }
+        }
+    }
+}
+
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}
