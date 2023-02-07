@@ -17,6 +17,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section {
+  padding: 3rem 9%;
+}
+
 .btn {
   margin-top: 1rem;
   display: inline-block;
@@ -223,12 +227,130 @@ html {
   display: none;
 }
 
+.home {
+  padding-top: 14rem;
+  background: url(../images/home-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.home .slides-container .slide {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  display: none;
+}
+.home .slides-container .slide.active {
+  display: flex;
+}
+.home .slides-container .slide .content {
+  flex: 1 1 40rem;
+}
+.home .slides-container .slide .content span {
+  color: #666;
+  font-size: 2.5rem;
+}
+.home .slides-container .slide .content h3 {
+  font-size: 6rem;
+  color: #222;
+  padding: 0.5rem 0;
+}
+.home .slides-container .slide .image {
+  flex: 1 1 40rem;
+}
+.home .slides-container .slide .image img {
+  width: 100%;
+}
+.home #next-slide,
+.home #prev-slide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background: #fff;
+  font-size: 3rem;
+  cursor: pointer;
+}
+.home #next-slide:hover,
+.home #prev-slide:hover {
+  background: #bac34e;
+  color: #fff;
+}
+.home #prev-slide {
+  left: 2rem;
+}
+.home #next-slide {
+  right: 2rem;
+}
+
+.footer {
+  background: #f3f3f3;
+}
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+}
+.footer .box-container .box h3 {
+  font-size: 2.2rem;
+  color: #222;
+  padding: 1rem 0;
+}
+.footer .box-container .box p {
+  font-size: 1.5rem;
+  color: #666;
+  padding-bottom: 0.5rem;
+}
+.footer .box-container .box a {
+  font-size: 1.4rem;
+  color: #666;
+  padding-bottom: 1rem 0;
+  display: block;
+}
+.footer .box-container .box a:hover {
+  color: #bac34e;
+}
+.footer .box-container .box a:hover i {
+  padding-right: 2rem;
+}
+.footer .box-container .box a i {
+  padding-right: 0.5rem;
+  color: #bac34e;
+}
+.footer .box-container .box form input[type=email] {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  font-size: 1.6rem;
+  color: #222;
+  margin: 1rem 0;
+  text-transform: none;
+}
+.footer .box-container .box .payment {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.credit {
+  text-align: center;
+  background: #bac34e;
+  color: #fff;
+  font-size: 2rem;
+}
+
 @media (max-width: 991px) {
   html {
     font-size: 55%;
   }
   .header {
     padding: 2rem;
+  }
+  section {
+    padding: 3rem 2rem;
   }
 }
 @media (max-width: 768px) {
@@ -270,6 +392,9 @@ html {
 @media (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+  .home .slides-container .slide .content h3 {
+    font-size: 5rem;
   }
 }
 

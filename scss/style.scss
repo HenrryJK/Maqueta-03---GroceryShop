@@ -28,6 +28,9 @@ html{
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+section{
+    padding: 3rem 9%;
+}
 // clase estilo relacionado al shopping car (carrito de compra)
 .btn{
     margin-top: 1rem;
@@ -262,8 +265,144 @@ html{
     display: none;
 }
 
+.home{
+    padding-top: 14rem;
+    background: url(../images/home-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .slides-container{
+
+        .slide{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            display: none;
+
+            &.active{
+              display: flex;
+            }
+
+            .content{
+                flex: 1 1 40rem;
+
+                span{
+                    color: $light-color;
+                    font-size: 2.5rem;
+                }
+                h3{
+                    font-size: 6rem;
+                    color: $black;
+                    padding: .5rem 0;
+                }
+            }
+            
+            .image{
+                flex: 1 1 40rem;
+
+                img{
+                width: 100%;
+                }
+            }
+        }
+    }
+    #next-slide,
+    #prev-slide{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 5rem;
+        width: 5rem;
+        line-height: 5rem;
+        box-shadow: $box-shadow;
+        text-align: center;
+        background: $white;
+        font-size: 3rem;
+        cursor: pointer;
+
+        &:hover{
+            background: $green;
+            color: $white;
+        }
+    }
+    #prev-slide{
+        left: 2rem;
+    }
+    #next-slide{
+        right: 2rem;
+    }
+}
+
+// .space{
+//     // min-height: 50vh;
+//     min-height: 30vh;
+// }
+.footer{
+    background: $light-bg;
+
+    .box-container{
+        // estilo que sirve para mover los elementos en forma horizontal
+      @include grid(25rem);
+      
+      .box{
+
+        h3{
+          font-size: 2.2rem;
+          color: $black;
+          padding: 1rem 0;
+        }
+
+        p{
+            font-size: 1.5rem;
+            color: $light-color;
+            padding-bottom: .5rem;
+            
+        }
 
 
+        a{
+            font-size: 1.4rem;
+            color: $light-color;
+            padding-bottom: 1rem 0;
+            display: block;
+
+            &:hover{
+                color: $green;
+
+                i{
+                   padding-right: 2rem;
+                }
+            }
+
+            i{
+              padding-right: .5rem;
+              color: $green;
+            }
+         }
+         form input[type="email"]{
+            width: 100%;
+            padding: 1rem 1.2rem;
+            font-size: 1.6rem;
+            color: $black;
+            margin: 1rem 0;
+            text-transform: none;
+         }
+
+         .payment{
+            width: 100%;
+            margin-top: 2rem;
+         }
+      }
+    }
+}
+
+.credit{
+    text-align: center;
+    background: $green;
+    color: $white;
+    font-size: 2rem;
+}
 // Media Queries
 @media (max-width: 991px){
     html{
@@ -271,6 +410,9 @@ html{
     }
     .header{
         padding: 2rem;
+    }
+    section{
+        padding: 3rem 2rem;
     }
 }
 
@@ -318,8 +460,14 @@ html{
     }
 }
 
+
+/// Media Queris
 @media (max-width:450px){
     html{
         font-size: 50%;
+    }
+
+    .home .slides-container .slide .content h3{
+        font-size: 5rem;
     }
 }
